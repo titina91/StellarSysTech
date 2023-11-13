@@ -1,7 +1,6 @@
 import time
 import unittest
 
-
 from Rocket import Rocket
 from Engine import Engine
 from Stage import Stage
@@ -14,25 +13,25 @@ class RocketTest(unittest.TestCase):
 
         # create Stages
         self.rocket.firstStage = Stage(label="First stage",
-                                status="OFF",
-                                empty_weight=1000,
-                                burn_time=300,
-                                max_thrust=1000
-                                )
+                                       status="OFF",
+                                       empty_weight=1000,
+                                       burn_time=300,
+                                       max_thrust=1000
+                                       )
 
         self.rocket.secondStage = Stage(label="Second stage",
-                                 status="OFF",
-                                 empty_weight=1000,
-                                 burn_time=300,
-                                 max_thrust=1000
-                                 )
+                                        status="OFF",
+                                        empty_weight=1000,
+                                        burn_time=300,
+                                        max_thrust=1000
+                                        )
 
         self.rocket.thirdStage = Stage(label="Third stage",
-                                status="OFF",
-                                empty_weight=1000,
-                                burn_time=300,
-                                max_thrust=1000
-                                )
+                                       status="OFF",
+                                       empty_weight=1000,
+                                       burn_time=300,
+                                       max_thrust=1000
+                                       )
 
         # create engines
         self.rocket.firstStage.engines = {Engine() for i in range(5)}
