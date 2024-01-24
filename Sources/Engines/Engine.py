@@ -20,7 +20,7 @@ class Engine:
 
     def __init__(self,
                  label: str = "",
-                 isp: int = 250,
+                 specific_impulse: int = 250,
                  temperature: float = 20,
                  is_on_flag: bool = False,
                  associated_tank: Tank.Tank = None):
@@ -30,10 +30,10 @@ class Engine:
 
         self.id = Engine.nb_id  # id de la fusee
         self.label = label  # le label du moteur
-        self.isp = isp  # impulsion spécifique d'un moteur
+        self.specific_impulse = specific_impulse  # impulsion spécifique d'un moteur
         self.temperature = temperature  # temperature du moteur
-        self.mass = 1000  # masse du moteur
-        self.exit_area = 3  # surface d'échappement
+        self._mass = 1000  # masse du moteur
+        self._exit_area = 3  # surface d'échappement
         self.consumption = 0
         self.engine_power = 1.0
 
@@ -99,13 +99,16 @@ class Engine:
         self.is_on_flag = False
 
     def get_mass_flow_rate(self) -> float:
-        return 1000000.0
+        pass
 
     def get_exhaust_velocity(self) -> float:
-        return 1.0
+        pass
 
     def get_exhaust_pressure(self):
         pass
 
     def has_enough_fuel(self):
         return self.associated_tank.fuel - self.consumption >= 0
+
+    def get_exit_area(self):
+        return self._exit_area
